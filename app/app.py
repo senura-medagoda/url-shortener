@@ -62,9 +62,9 @@ def health():
     try:
         r = get_redis()
         r.ping()
-        return jsonify({"status": "healthy", "redis": "connected"}), 200
+        return jsonify({"status": "healthy", "redis": "connected", "version": "1.0.1"}), 200
     except Exception:
-        return jsonify({"status": "unhealthy", "redis": "disconnected"}), 503
+        return jsonify({"status": "unhealthy", "redis": "disconnected", "version": "1.0.1"}), 503
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
